@@ -53,7 +53,7 @@ app.get('/api/scanner/:id', async (req, res) => {
 
   try {
     // Find the link associated with the provided ID
-    const linkData = await Link.findOne({ _id: id });
+    const linkData = await Link.findOne({ qrId: id });
     console.log('linkData', linkData)
     if (!linkData) {
       return res.status(404).json({ error: 'Link not found' });
