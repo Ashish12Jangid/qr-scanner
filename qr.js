@@ -53,17 +53,18 @@ app.get('/api/scanner/:id', async (req, res) => {
 
   try {
     // Find the link associated with the provided ID
-    const linkData = await Link.findOne({ qrId: id });
+    const linkData = await Link.findOne({ qrId: ObjectId(id) });
     console.log('linkData', linkData)
     if (!linkData) {
       return res.status(404).json({ error: 'Link not found' });
     }
-
+    console.log('linkData.link', linkData.link)
     // Redirect to the associated link
-    res.redirect(linkData.link);
+    return res.status(302).redirect(linkData.link);
+
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to redirect' });
+    return res.status(500).json({ error: 'Failed to redirect' });
   }
 });
 
