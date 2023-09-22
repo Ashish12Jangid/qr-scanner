@@ -21,10 +21,7 @@ const connectDB = async () => {
 connectDB();   
 
 app.get("/api", (req, res) => {
-  res.status(200).send({ success: true, message: "API Is running", errors: "" })
-});
-
-(async () => {
+  (async () => {
     // Generate the QR code
     const qrId = new mongoose.mongo.ObjectId()
     const data = new Link({
@@ -40,6 +37,10 @@ app.get("/api", (req, res) => {
         });
     }
 })();
+  res.status(200).send({ success: true, message: "API Is running", errors: "" })
+});
+
+
 
 // Redirect to the associated link for a given ID
 app.get('scanner/:id', async (req, res) => {
