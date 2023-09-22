@@ -20,9 +20,9 @@ const connectDB = async () => {
 }
 connectDB();   
 
-app.get('/api', async () => {
-  return res.status(200).json({ message: 'API is running' });
-})
+app.get("/api", (req, res) => {
+  res.status(200).send({ success: true, message: "API Is running", errors: "" })
+});
 
 (async () => {
     // Generate the QR code
