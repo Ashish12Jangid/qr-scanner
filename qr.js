@@ -47,13 +47,14 @@ app.get("/api", async (req, res) => {
 
 
 // Redirect to the associated link for a given ID
-app.get('scanner/:id', async (req, res) => {
+app.get('/api/scanner/:id', async (req, res) => {
+  console.log('req.params', req.params)
   const { id } = req.params;
 
   try {
     // Find the link associated with the provided ID
     const linkData = await Link.findOne({ _id: id });
-
+    console.log('linkData', linkData)
     if (!linkData) {
       return res.status(404).json({ error: 'Link not found' });
     }
