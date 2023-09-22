@@ -20,6 +20,10 @@ const connectDB = async () => {
 }
 connectDB();   
 
+app.get('/api', async () => {
+  return res.status(200).json({ message: 'API is running' });
+})
+
 (async () => {
     // Generate the QR code
     const qrId = new mongoose.mongo.ObjectId()
