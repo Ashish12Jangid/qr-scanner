@@ -18,7 +18,7 @@ const connectDB = async () => {
         process.exit(1);
     }
 }
-connectDB();
+connectDB();   
 
 (async () => {
     // Generate the QR code
