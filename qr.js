@@ -22,7 +22,7 @@ connectDB();
 
 (async () => {
     // Generate the QR code
-    const qrId = new mongoose. mongo. ObjectId()
+    const qrId = new mongoose.mongo.ObjectId()
     const data = new Link({
         name: 'google_qr.png',
         qrId: qrId
